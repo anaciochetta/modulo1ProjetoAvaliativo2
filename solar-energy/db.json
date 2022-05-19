@@ -1,0 +1,62 @@
+{
+  "units": [
+    {
+      "id": 1,
+      "isActive": true,
+      "apelido": " string",
+      "local": "string",
+      "marca": "string",
+      "modelo": " string"
+    },
+    {
+      "id": 2,
+      "isActive": true,
+      "apelido": "a",
+      "local": "fd",
+      "marca": "d",
+      "modelo": "g"
+    },
+    {
+      "id": 56,
+      "isActive": true,
+      "apelido": "sdzf",
+      "local": "sdf",
+      "marca": "sdf",
+      "modelo": "dsf"
+    },
+    {
+      "id": 53,
+      "isActive": true,
+      "apelido": "asd",
+      "local": "asd",
+      "marca": "asd",
+      "modelo": "sad"
+    },
+    {
+      "id": 38,
+      "isActive": false,
+      "apelido": "asdas",
+      "local": "asd",
+      "marca": "asd",
+      "modelo": "sad"
+    },
+    {
+      "id": 74,
+      "isActive": true,
+      "apelido": "a",
+      "local": "a",
+      "marca": "a",
+      "modelo": "a"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -10,6 +10,7 @@ import { ConsumptionComponent } from './pages/consumption/consumption.component'
 import { Route, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LogonComponent } from './pages/logon/logon.component';
+import { FormsModule } from '@angular/forms';
 
 const ROUTES: Route[] = [
   {
@@ -41,7 +42,12 @@ const ROUTES: Route[] = [
     ConsumptionComponent,
     LogonComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(ROUTES)],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(ROUTES),
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

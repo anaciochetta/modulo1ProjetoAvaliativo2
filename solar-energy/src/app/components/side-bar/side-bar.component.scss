@@ -1,36 +1,20 @@
-
-/* .btn{
-  color: #4cbc9a;
-  border-color: #4cbc9a;
-  margin: 5px;
-  outline-color: #4cbc9a;
-} */
-
 .btn{
-  font-size: 1.5em;
-  font-weight:bold ;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid #444;
-  background-color: #4cbc9a;
-  color: black;
+  border: 1px solid #4cbc9a;
+  background-color: white;
+  color: #A098AE;
   margin-left: 5px;
   padding: 0 25px;
   transition: .5s;
   
 }
-/* .btn:hover{
+.btn:hover{
   border: 1px solid #4cbc9a;
-  background-color: white;
-  color: black;
-} */
-.btn:active {
-  background-color: #ffbf00;
-  box-shadow: 0 0 0 4px #5a01a7;
+  background-color: #4cbc9a;
+  color: white;
 }
-.button:focus {
-  outline-color: transparent;
-  outline-style:solid;
-  box-shadow: 0 0 0 4px #5a01a7;
-  transition: 0.7s;
+
+.nav-item{
+  padding: 6px;
 }
