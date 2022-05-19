@@ -4,13 +4,13 @@ import { AppComponent } from './app.component';
 import { ContentComponent } from './components/content/content.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { UnitsComponent } from './pages/units/units.component';
-import { CreateUnitComponent } from './pages/create-unit/create-unit.component';
 import { ConsumptionComponent } from './pages/consumption/consumption.component';
 import { Route, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LogonComponent } from './pages/logon/logon.component';
 import { FormsModule } from '@angular/forms';
+import { UnitsListComponent } from './pages/units-list/units-list.component';
+import { UnitComponent } from './pages/unit/unit.component';
 
 const ROUTES: Route[] = [
   {
@@ -18,12 +18,16 @@ const ROUTES: Route[] = [
     component: DashboardComponent,
   },
   {
-    path: 'units',
-    component: UnitsComponent,
+    path: 'logon',
+    component: LogonComponent,
   },
   {
-    path: 'create-unit',
-    component: CreateUnitComponent,
+    path: 'units-list',
+    component: UnitsListComponent,
+  },
+  {
+    path: 'unit',
+    component: UnitComponent,
   },
   {
     path: 'consumption',
@@ -37,10 +41,10 @@ const ROUTES: Route[] = [
     ContentComponent,
     SideBarComponent,
     DashboardComponent,
-    UnitsComponent,
-    CreateUnitComponent,
     ConsumptionComponent,
     LogonComponent,
+    UnitsListComponent,
+    UnitComponent,
   ],
   imports: [
     BrowserModule,

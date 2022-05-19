@@ -26,7 +26,13 @@
             <button type="button" class="btn btn-success btn-sm">Editar</button>
           </td>
           <td>
-            <button type="button" class="btn btn-danger btn-sm">Remover</button>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="remove(unit.id)"
+            >
+              Remover
+            </button>
           </td>
         </tr>
       </tbody>
@@ -39,7 +45,7 @@
       class="btn btn-primary me-md-2"
       type="button"
       routerLinkActive="active"
-      routerLink="/create-unit"
+      routerLink="/unit"
     >
       Nova Unidade
     </button>

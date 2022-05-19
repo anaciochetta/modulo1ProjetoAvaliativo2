@@ -2,7 +2,7 @@
   <div class="col-md-5 col-lg-4 order-md-last">
     <form
       #createUnit="ngForm"
-      (ngSubmit)="createNewUnit(); createUnit.reset()"
+      (ngSubmit)="onSubmit(); createUnit.reset()"
       novalidate
     >
       <div id="unit-form">

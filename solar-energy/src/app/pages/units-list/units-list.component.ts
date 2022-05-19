@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitService } from 'src/app/services/unit.service';
-import { Unit } from 'src/app/utils/unit';
+import { Unit } from 'src/app/utils/unit.class';
 
 @Component({
-  selector: 'solar-units',
-  templateUrl: './units.component.html',
-  styleUrls: ['./units.component.scss'],
+  selector: 'solar-units-list',
+  templateUrl: './units-list.component.html',
+  styleUrls: ['./units-list.component.scss'],
 })
-export class UnitsComponent implements OnInit {
+export class UnitsListComponent implements OnInit {
   unitsList: Unit[] = [];
   activeUnits: Unit[] = [];
 
@@ -31,8 +31,8 @@ export class UnitsComponent implements OnInit {
     });
   }
 
-  removeUnit(id: number) {
-    const unitIndex = this.activeUnits.findIndex((unit) => unit.id === id); //busca o id do item
-    this.activeUnits.splice(unitIndex, 1);
-  } //exclui o item
+  remove(id: number) {
+    this.unitService.removeUnit(id);
+    this.getUnitsList();
+  }
 }
