@@ -12,6 +12,7 @@ export class UnitComponent implements OnInit {
   routeData: any;
   id: number = 0;
   formUnit = new Unit();
+  title: string = '';
 
   constructor(
     private unitService: UnitService,
@@ -26,7 +27,10 @@ export class UnitComponent implements OnInit {
       this.unitService.getUnitById((data: any) => {
         this.formUnit = data;
         console.log(this.formUnit);
+        this.title = 'Editar Unidade';
       });
+    } else {
+      this.title = 'Cadastrar Unidade';
     }
     console.log(this.formUnit);
   }
@@ -37,6 +41,7 @@ export class UnitComponent implements OnInit {
     } else {
       this.createNewUnit();
     }
+    this.unitService.goToUnitList();
   }
 
   createNewUnit() {

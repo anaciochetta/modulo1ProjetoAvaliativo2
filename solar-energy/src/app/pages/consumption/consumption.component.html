@@ -1,1 +1,27 @@
-<p>consumption works!</p>
+<div class="container">
+  <form #date="ngForm" (ngSubmit)="onSubmit()">
+    <h2>Lançamento de geração mensal</h2>
+    <label for="Select" class="form-label">Unidade Geradora:</label>
+    <div class="mb-3">
+      <select id="Select" class="form-select" name="select">
+        <option *ngFor="let item of unitsList" value="{{ item.id }}">
+          {{ item.apelido }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Mês/Ano:</label>
+      <input type="date" class="form-control datepicker" name="date" />
+    </div>
+    <div class="mb-3">
+      <label for="TextInput" class="form-label">Total kw gerado:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="80"
+        name="consumption"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+</div>

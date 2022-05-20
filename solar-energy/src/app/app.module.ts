@@ -11,6 +11,8 @@ import { LogonComponent } from './pages/logon/logon.component';
 import { FormsModule } from '@angular/forms';
 import { UnitsListComponent } from './pages/units-list/units-list.component';
 import { UnitComponent } from './pages/unit/unit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const ROUTES: Route[] = [
   {
@@ -61,6 +63,8 @@ const ROUTES: Route[] = [
     RouterModule.forRoot(ROUTES),
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

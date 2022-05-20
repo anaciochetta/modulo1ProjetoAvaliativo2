@@ -63,4 +63,8 @@ export class UnitService {
         console.log(this.unitList);
       });
   }
+
+  goToUnitList() {
+    this.route.navigateByUrl('/units-list');
+  }
 }

@@ -1,75 +1,74 @@
-<div class="row g-5">
-  <div class="col-md-5 col-lg-4 order-md-last">
-    <form #unit="ngForm" (ngSubmit)="onSubmit()" novalidate>
-      <div id="unit-form">
-        <div class="col-12">
-          <label for="apelido" class="form-label">Apelido</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Painel 1"
-            [(ngModel)]="formUnit.apelido"
-            name="apelido"
-            required
-          />
-        </div>
-
-        <div class="col-12">
-          <label for="local" class="form-label">Local</label>
-          <input
-            type="text"
-            class="form-control"
-            id="local"
-            placeholder="Rua Alberto 430"
-            [(ngModel)]="formUnit.local"
-            name="local"
-            required
-          />
-        </div>
-
-        <div class="col-12">
-          <label for="marca" class="form-label">Marca</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Resun"
-            [(ngModel)]="formUnit.marca"
-            name="marca"
-            required
-          />
-        </div>
-        <div class="col-md-3">
-          <label for="zip" class="form-label">Modelo</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="155W"
-            [(ngModel)]="formUnit.modelo"
-            name="modelo"
-            required
-          />
-        </div>
-        <div class="form-check">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            [(ngModel)]="formUnit.isActive"
-            name="active"
-          />
-          <label class="form-check-label">Ativo</label>
-        </div>
+<div>
+  <h2>{{ title }}</h2>
+  <form #unit="ngForm" (ngSubmit)="onSubmit()">
+    <div id="unit-form">
+      <div class="col-12">
+        <label for="apelido" class="form-label">Apelido</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Painel 1"
+          [(ngModel)]="formUnit.apelido"
+          name="apelido"
+          required
+        />
       </div>
-      <div>
-        <div class="d-grid gap-10 d-md-flex justify-content-md-end">
-          <button
-            class="btn btn-primary me-md-2"
-            type="submit"
-            [disabled]="!unit.valid"
-          >
-            Salvar
-          </button>
-        </div>
+
+      <div class="col-12">
+        <label for="local" class="form-label">Local</label>
+        <input
+          type="text"
+          class="form-control"
+          id="local"
+          placeholder="Rua Alberto 430"
+          [(ngModel)]="formUnit.local"
+          name="local"
+          required
+        />
       </div>
-    </form>
-  </div>
+
+      <div class="col-12">
+        <label for="marca" class="form-label">Marca</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Resun"
+          [(ngModel)]="formUnit.marca"
+          name="marca"
+          required
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="zip" class="form-label">Modelo</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="155W"
+          [(ngModel)]="formUnit.modelo"
+          name="modelo"
+          required
+        />
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [(ngModel)]="formUnit.isActive"
+          name="active"
+        />
+        <label class="form-check-label">Ativo</label>
+      </div>
+    </div>
+    <div>
+      <div class="d-grid gap-10 d-md-flex justify-content-md-end">
+        <button
+          class="btn btn-primary me-md-2"
+          type="submit"
+          [disabled]="!unit.valid"
+        >
+          Salvar
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
