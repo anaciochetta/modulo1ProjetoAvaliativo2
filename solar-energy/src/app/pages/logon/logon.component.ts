@@ -9,6 +9,7 @@ import { IUser } from 'src/app/utils/user.model';
 })
 export class LogonComponent implements OnInit {
   usersList: IUser[] = [];
+  inputUser: IUser = { email: '', password: '' };
 
   constructor(private logonService: LogonService) {}
 
@@ -19,5 +20,9 @@ export class LogonComponent implements OnInit {
       this.usersList = resultado;
     });
     console.log(this.usersList);
+  }
+
+  onSubmit() {
+    this.logonService.validatePassword(this.inputUser.password);
   }
 }

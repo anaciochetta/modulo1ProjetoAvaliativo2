@@ -12,4 +12,6 @@ export class LogonService {
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>('http://localhost:3000/users');
   }
+
+  validatePassword() {}
 }

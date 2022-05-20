@@ -1,9 +1,6 @@
 <div class="container-fluid text-center">
-  <!-- <div class="image-logon">
-    <img src="assets/image-logon.png" alt="" />
-  </div> -->
   <div class="form-signin">
-    <form>
+    <form #login="ngForm" (ngSubmit)="onSubmit(); login.reset()" novalidate>
       <img class="mb-4" src="assets/logo-logon.png" alt="" />
       <h1 class="h3 mb-3 fw-normal">Seja bem vindo!</h1>
 
@@ -13,6 +10,8 @@
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          name="email"
+          [(ngModel)]="inputUser.email"
         />
         <label for="floatingInput">E-mail</label>
       </div>
@@ -22,10 +21,11 @@
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          name="password"
+          [(ngModel)]="inputUser.password"
         />
         <label for="floatingPassword">Senha</label>
       </div>
-
       <!-- <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me" /> Remember me
