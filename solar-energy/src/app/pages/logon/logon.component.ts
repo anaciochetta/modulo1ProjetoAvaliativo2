@@ -15,6 +15,8 @@ export class LogonComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onSubmit() {}
+
   getUsersList(): void {
     this.logonService.getUsers().subscribe((resultado) => {
       this.usersList = resultado;
@@ -22,7 +24,5 @@ export class LogonComponent implements OnInit {
     console.log(this.usersList);
   }
 
-  onSubmit() {
-    this.logonService.validatePassword(this.inputUser.password);
-  }
+  validateLogon() {}
 }

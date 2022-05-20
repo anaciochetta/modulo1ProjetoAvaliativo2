@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UnitService } from 'src/app/services/unit.service';
 import { Unit } from 'src/app/utils/unit.class';
 
@@ -9,43 +9,44 @@ import { Unit } from 'src/app/utils/unit.class';
   styleUrls: ['./unit.component.scss'],
 })
 export class UnitComponent implements OnInit {
-  newUnit = new Unit();
-  //unitData: Unit;
   routeData: any;
+  newUnit = new Unit();
+  id: number = 0;
+  unitData: any;
 
-  constructor(private unitService: UnitService, private router: Router) {
-    //console.log(this.router.getCurrentNavigation().extras.state.example);
-  }
+  constructor(
+    private unitService: UnitService,
+    private activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.routeData = history.state;
-    //fazer aqui uma função verificar como está a situação de editar ou add
+    this.activatedroute.data.subscribe((data) => {
+      this.routeData = data;
+    });
+    this.unitData = this.unitService.unitToEdit;
+    console.log(this.unitData);
   }
 
   onSubmit() {
-    /* if (isEditing) {
-      this.editUnit(unitData.id);
-    } */
+    if (this.routeData.editing == true) {
+    }
     this.createNewUnit();
   }
 
   createNewUnit() {
     this.newUnit.id = Math.round(Math.random() * 100);
-    if (this.newUnit.isActive == null) {
-      this.newUnit.isActive = false;
-    }
     this.unitService.pushUnitsList({ ...this.newUnit });
     this.unitService.addUnitList({ ...this.newUnit }).subscribe((data) => {
       data;
     });
   }
 
-  editUnit(id: number) {
-    //precisa receber o obj e o id
-    let modifiedUnit;
-    this.unitService.getUnitById(id).subscribe((data) => {
-      modifiedUnit = data;
-    });
-    this.unitService.editUnitList(id, modifiedUnit);
+  getUnitToEdit() {
+    this.id = Number(localStorage.getItem('id'));
+    console.log(this.id);
+    let a = this.unitService.getUnitById();
+    console.log(a);
   }
+
+  editUnit() {}
 }

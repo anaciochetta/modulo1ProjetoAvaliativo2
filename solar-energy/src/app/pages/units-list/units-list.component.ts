@@ -22,7 +22,6 @@ export class UnitsListComponent implements OnInit {
       this.unitsList = resultado;
       this.filterActiveUnits();
     });
-    console.log(this.unitsList);
   }
 
   filterActiveUnits() {
@@ -31,7 +30,12 @@ export class UnitsListComponent implements OnInit {
     });
   }
 
-  remove(id: number) {
+  editUnit(id: number) {
+    console.log(id);
+    this.unitService.goToEditing(id);
+  }
+
+  removeUnit(id: number) {
     this.unitService.removeUnit(id);
     this.getUnitsList();
   }

@@ -26,8 +26,18 @@ const ROUTES: Route[] = [
     component: UnitsListComponent,
   },
   {
-    path: 'unit',
+    path: 'create-unit',
     component: UnitComponent,
+    data: {
+      editing: false,
+    },
+  },
+  {
+    path: 'edit-unit',
+    component: UnitComponent,
+    data: {
+      editing: true,
+    },
   },
   {
     path: 'consumption',

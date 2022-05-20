@@ -23,13 +23,19 @@
           <td>{{ unit.marca }}</td>
           <td>{{ unit.modelo }}</td>
           <td>
-            <button type="button" class="btn btn-success btn-sm">Editar</button>
+            <button
+              type="button"
+              class="btn btn-success btn-sm"
+              (click)="editUnit(unit.id)"
+            >
+              Editar
+            </button>
           </td>
           <td>
             <button
               type="button"
               class="btn btn-danger btn-sm"
-              (click)="remove(unit.id)"
+              (click)="removeUnit(unit.id)"
             >
               Remover
             </button>
@@ -45,7 +51,7 @@
       class="btn btn-primary me-md-2"
       type="button"
       routerLinkActive="active"
-      routerLink="/unit"
+      routerLink="/create-unit"
     >
       Nova Unidade
     </button>
