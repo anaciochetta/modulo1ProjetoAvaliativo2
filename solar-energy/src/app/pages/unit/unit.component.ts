@@ -10,9 +10,8 @@ import { Unit } from 'src/app/utils/unit.class';
 })
 export class UnitComponent implements OnInit {
   routeData: any;
-  newUnit = new Unit();
   id: number = 0;
-  unitData: any;
+  formUnit = new Unit();
 
   constructor(
     private unitService: UnitService,
@@ -23,30 +22,32 @@ export class UnitComponent implements OnInit {
     this.activatedroute.data.subscribe((data) => {
       this.routeData = data;
     });
-    this.unitData = this.unitService.unitToEdit;
-    console.log(this.unitData);
+    if (this.routeData.editing == true) {
+      this.unitService.getUnitById((data: any) => {
+        this.formUnit = data;
+        console.log(this.formUnit);
+      });
+    }
+    console.log(this.formUnit);
   }
 
   onSubmit() {
     if (this.routeData.editing == true) {
+      this.editUnit();
+    } else {
+      this.createNewUnit();
     }
-    this.createNewUnit();
   }
 
   createNewUnit() {
-    this.newUnit.id = Math.round(Math.random() * 100);
-    this.unitService.pushUnitsList({ ...this.newUnit });
-    this.unitService.addUnitList({ ...this.newUnit }).subscribe((data) => {
-      data;
-    });
+    this.formUnit.id = Math.round(Math.random() * 100);
+    this.unitService.pushUnitsList({ ...this.formUnit });
+    this.unitService.addUnitList({ ...this.formUnit }).subscribe();
   }
 
-  getUnitToEdit() {
+  editUnit() {
     this.id = Number(localStorage.getItem('id'));
-    console.log(this.id);
-    let a = this.unitService.getUnitById();
-    console.log(a);
+    this.formUnit.id = this.id;
+    this.unitService.editUnit(this.id, { ...this.formUnit });
   }
-
-  editUnit() {}
 }

@@ -31,7 +31,6 @@ export class UnitsListComponent implements OnInit {
   }
 
   editUnit(id: number) {
-    console.log(id);
     this.unitService.goToEditing(id);
   }
 

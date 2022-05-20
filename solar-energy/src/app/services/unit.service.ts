@@ -11,7 +11,6 @@ export class UnitService {
   unitList: Unit[] = [];
   units: Unit[] = [];
   unitToEdit: Unit[] = [];
-  unitId: number = 0;
 
   constructor(private http: HttpClient, private route: Router) {}
 
@@ -33,22 +32,20 @@ export class UnitService {
   }
 
   removeUnit(id: number) {
-    this.http.delete('http://localhost:3000/units/' + id).subscribe((data) => {
-      console.log(data);
-    });
+    this.http.delete('http://localhost:3000/units/' + id).subscribe();
   }
 
   goToEditing(id: number) {
-    this.route.navigateByUrl('/edit-unit');
     localStorage.setItem('id', JSON.stringify(id));
+    this.route.navigateByUrl('/edit-unit');
   }
 
-  getUnitById(): any {
+  getUnitById(cb: any): any {
     let id = Number(localStorage.getItem('id'));
     this.getUnitList().subscribe((resultado) => {
       this.units = resultado;
       this.filterUnitById(id);
-      return this.unitToEdit;
+      return cb(this.unitToEdit[0]);
     });
   }
 
@@ -56,15 +53,14 @@ export class UnitService {
     this.unitToEdit = this.units.filter((unit) => {
       return unit.id == id;
     });
-    console.log(this.unitToEdit);
   }
 
   editUnit(id: number, unit: any) {
-    const body = JSON.stringify(unit);
     this.http
-      .post('http://localhost:3000/units/' + id, body)
+      .put('http://localhost:3000/units/' + id, unit)
       .subscribe((data) => {
         console.log(data);
+        console.log(this.unitList);
       });
   }
 }
