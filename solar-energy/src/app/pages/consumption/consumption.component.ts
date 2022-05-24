@@ -27,8 +27,8 @@ export class ConsumptionComponent implements OnInit {
   }
 
   getUnitsList(): void {
-    this.unitService.getUnitList().subscribe((resultado) => {
-      this.unitsList = resultado;
+    this.unitService.getUnitList().subscribe((data) => {
+      this.unitsList = data;
     });
   }
 

@@ -84,38 +84,96 @@
   ],
   "consumption": [
     {
-      "id": "84",
-      "month": "march",
-      "year": 2010,
-      "energy": 20
-    },
-    {
-      "id": "41",
-      "month": "april",
-      "year": 2020,
-      "energy": 4854
-    },
-    {
-      "id": "ME-LmnN",
-      "month": "",
-      "year": 0,
-      "energy": 0
+      "id": "1",
+      "consumption": [
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
     },
     {
       "id": "38",
-      "consumption": {
-        "month": "march",
-        "year": "2016",
-        "energy": 47545
-      }
+      "consumption": [
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        },
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
     },
     {
       "id": "57",
       "consumption": [
         {
-          "month": "march",
-          "year": "2015",
-          "energy": 34324
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        },
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "consumption": [
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
+    },
+    {
+      "id": "84",
+      "consumption": [
+        
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "consumption": [
+        
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "consumption": [
+        
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
+        }
+      ]
+    },
+    {
+      "id": "77",
+      "consumption": [
+        
+        {
+          "month": "april",
+          "year": "2010",
+          "energy": 200
         }
       ]
     }

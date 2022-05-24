@@ -26,7 +26,6 @@ export class UnitComponent implements OnInit {
     if (this.routeData.editing == true) {
       this.unitService.getUnitById((data: any) => {
         this.formUnit = data;
-        console.log(this.formUnit);
         this.title = 'Editar Unidade';
       });
     } else {
