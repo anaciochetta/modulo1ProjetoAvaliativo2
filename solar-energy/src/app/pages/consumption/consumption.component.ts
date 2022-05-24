@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
-import { Consumption, UnitConsumption } from 'src/app/utils/consumption.model';
+import {
+  Consumption,
+  UnitConsumption,
+} from 'src/app/utils/model/consumption.model';
 import { MONTH_MOCK, YEAR_MOCK } from 'src/app/utils/date-mock';
 import { Unit } from 'src/app/utils/unit.class';
 

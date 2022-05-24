@@ -1,4 +1,4 @@
-import { IMonth, IYear } from './date.model';
+import { IMonth, IYear } from './model/date.model';
 
 export const MONTH_MOCK: IMonth[] = [
   { value: 'january', viewValue: 'Janeiro' },

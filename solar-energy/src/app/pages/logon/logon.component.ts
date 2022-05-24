@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogonService } from 'src/app/services/logon.service';
-import { IUser } from 'src/app/utils/user.model';
+import { IUser } from 'src/app/utils/model/user.model';
 
 @Component({
   selector: 'solar-logon',
@@ -8,21 +8,52 @@ import { IUser } from 'src/app/utils/user.model';
   styleUrls: ['./logon.component.scss'],
 })
 export class LogonComponent implements OnInit {
-  usersList: IUser[] = [];
   inputUser: IUser = { email: '', password: '' };
+  usersList: IUser[] = [];
+  login: any;
 
   constructor(private logonService: LogonService) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {}
-
-  getUsersList(): void {
-    this.logonService.getUsers().subscribe((resultado) => {
-      this.usersList = resultado;
-    });
-    console.log(this.usersList);
+  onSubmit() {
+    this.validateLogon(this.inputUser.email, this.inputUser.password);
   }
 
-  validateLogon() {}
+  validateLogon(inputEmail: string, inputPassword: string) {
+    this.logonService.getUsers().subscribe((resultado) => {
+      this.usersList = resultado;
+      const email = this.validateEmail(inputEmail);
+      const password = this.validatePassword(inputPassword);
+      console.log(email, password);
+      if (email && password) {
+        localStorage.setItem('login', JSON.stringify('ok'));
+        this.logonService.goToDashboard();
+      } else {
+        alert('deu ruim');
+      }
+    });
+  }
+
+  validateEmail(email: string) {
+    const found = this.usersList.find((user) => {
+      return user.email === email;
+    });
+    if (found === undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validatePassword(password: string): boolean {
+    let found = this.usersList.find((user) => {
+      return user.password === password;
+    });
+    if (found === undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

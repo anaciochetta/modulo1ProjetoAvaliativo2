@@ -21,11 +21,11 @@ import { MatSelectModule } from '@angular/material/select';
 const ROUTES: Route[] = [
   {
     path: '', //sem nada pois entra na página principal, sem o / alguma coisa
-    component: DashboardComponent,
+    component: LogonComponent,
   },
   {
-    path: 'logon',
-    component: LogonComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: 'units-list',

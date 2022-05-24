@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Consumption } from '../utils/consumption.model';
+import { Consumption } from '../utils/model/consumption.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

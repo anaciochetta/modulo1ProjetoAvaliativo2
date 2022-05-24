@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
-import { Consumption } from 'src/app/utils/consumption.model';
+import { Consumption } from 'src/app/utils/model/consumption.model';
 import { Unit } from 'src/app/utils/unit.class';
 
 @Component({
