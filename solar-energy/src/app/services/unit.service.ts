@@ -16,7 +16,6 @@ export class UnitService {
 
   pushUnitsList(unit: any): any {
     this.unitList.push(unit);
-    console.log(this.unitList);
   }
 
   addUnitList(unit: Unit): Observable<any> {

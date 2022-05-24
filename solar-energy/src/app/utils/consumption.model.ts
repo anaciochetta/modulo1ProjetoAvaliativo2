@@ -1,6 +1,10 @@
-import { IUnit } from './unit.model';
+export class Consumption {
+  id: number = 0;
+  consumption: UnitConsumption[] = [];
+}
 
-export interface IComsumption extends IUnit {
-  date: number;
-  energy: number;
+export class UnitConsumption {
+  month: string = '';
+  year: number = 0;
+  energy: number = 0;
 }

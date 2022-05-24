@@ -3,15 +3,43 @@
     <h2>Lançamento de geração mensal</h2>
     <label for="Select" class="form-label">Unidade Geradora:</label>
     <div class="mb-3">
-      <select id="Select" class="form-select" name="select">
+      <select
+        id="Select"
+        class="form-select"
+        [(ngModel)]="unitConsumptionById.id"
+        name="select"
+      >
         <option *ngFor="let item of unitsList" value="{{ item.id }}">
           {{ item.apelido }}
         </option>
       </select>
     </div>
+
+    <label for="Select" class="form-label">Mês:</label>
     <div class="mb-3">
-      <label class="form-label">Mês/Ano:</label>
-      <input type="date" class="form-control datepicker" name="date" />
+      <select
+        id="Select"
+        class="form-select"
+        [(ngModel)]="unitConsumption.month"
+        name="month"
+      >
+        <option *ngFor="let item of months" value="{{ item.value }}">
+          {{ item.viewValue }}
+        </option>
+      </select>
+    </div>
+    <label for="Select" class="form-label">Ano:</label>
+    <div class="mb-3">
+      <select
+        id="Select"
+        class="form-select"
+        [(ngModel)]="unitConsumption.year"
+        name="year"
+      >
+        <option *ngFor="let item of years" value="{{ item.value }}">
+          {{ item.value }}
+        </option>
+      </select>
     </div>
     <div class="mb-3">
       <label for="TextInput" class="form-label">Total kw gerado:</label>
@@ -20,6 +48,7 @@
         class="form-control"
         placeholder="80"
         name="consumption"
+        [(ngModel)]="unitConsumption.energy"
       />
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>

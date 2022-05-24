@@ -1,7 +1,21 @@
-<div class="d-flex" id="wrapper">
-  <solar-side-bar></solar-side-bar>
-  <solar-content></solar-content>
-</div>
+<body>
+  <div>
+    <div class="row">
+      <div class="col-3">
+        <solar-side-bar></solar-side-bar>
+      </div>
+      <div class="col-9">
+        <div class="row">
+          <div class="col-1 bg-light"></div>
+          <div class="col-10 bg-light">
+            <solar-content></solar-content>
+          </div>
+          <div class="col-1 bg-light"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 <!-- fazer um if pra gerar a rota de login com a validação do email e senha
 começa no login e dps vai pro dahsboard
 chama o serviço pra ver se tá ok o email -->
