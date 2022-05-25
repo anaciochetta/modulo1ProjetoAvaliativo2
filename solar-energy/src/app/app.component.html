@@ -1,7 +1,7 @@
-<!-- <body>
+<div>
   <div>
     <div class="row">
-      <div class="col-3">
+      <div class="col-3" *ngIf="showMenu">
         <solar-side-bar></solar-side-bar>
       </div>
       <div class="col-9">
@@ -15,9 +15,4 @@
       </div>
     </div>
   </div>
-</body> -->
-<!-- fazer um if pra gerar a rota de login com a validação do email e senha
-começa no login e dps vai pro dahsboard
-chama o serviço pra ver se tá ok o email -->
-
-<router-outlet></router-outlet>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'solar-root',
@@ -8,5 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'solar-energy';
 
-  validate = String(localStorage.getItem('login'));
+  showMenu: boolean = false;
+
+  constructor(private authService: AuthenticationService) {}
+
+  ngOnInit(): void {
+    this.authService.showMenuEmitter.subscribe((show) => {
+      this.showMenu = show;
+      console.log(this.showMenu);
+    });
+  }
 }
