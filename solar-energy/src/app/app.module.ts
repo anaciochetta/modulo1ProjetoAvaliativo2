@@ -13,6 +13,7 @@ import { UnitsListComponent } from './pages/units-list/units-list.component';
 import { UnitComponent } from './pages/unit/unit.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     UnitComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

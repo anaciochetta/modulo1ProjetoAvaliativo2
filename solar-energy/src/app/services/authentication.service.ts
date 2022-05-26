@@ -71,7 +71,12 @@ export class AuthenticationService {
       this.authenticated = true;
       return true;
     } else {
+      this.authenticated = true;
       return false;
     }
+  }
+
+  userLogged() {
+    return this.authenticated;
   }
 }

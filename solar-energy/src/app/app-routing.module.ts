@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { ConsumptionComponent } from './pages/consumption/consumption.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LogonComponent } from './pages/logon/logon.component';
 import { UnitComponent } from './pages/unit/unit.component';
 import { UnitsListComponent } from './pages/units-list/units-list.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const ROUTES: Route[] = [
   {
     path: '', //sem nada pois entra na página principal, sem o / alguma coisa
     component: DashboardComponent,
-    //canActivate: [AuthenticationService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'logon',
@@ -19,7 +20,7 @@ const ROUTES: Route[] = [
   {
     path: 'units-list',
     component: UnitsListComponent,
-    //canActivate: [AuthenticationService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'create-unit',
@@ -27,7 +28,7 @@ const ROUTES: Route[] = [
     data: {
       editing: false,
     },
-    //canActivate: [AuthenticationService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'edit-unit',
@@ -35,12 +36,12 @@ const ROUTES: Route[] = [
     data: {
       editing: true,
     },
-    //anActivate: [AuthenticationService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'consumption',
     component: ConsumptionComponent,
-    //canActivate: [AuthenticationService],
+    canActivate: [AuthGuardService],
   },
 ];
 
