@@ -5,7 +5,6 @@ import { ContentComponent } from './components/content/content.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ConsumptionComponent } from './pages/consumption/consumption.component';
-import { Route, RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LogonComponent } from './pages/logon/logon.component';
 import { FormsModule } from '@angular/forms';

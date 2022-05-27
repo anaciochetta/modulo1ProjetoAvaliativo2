@@ -20,6 +20,7 @@ export class UnitComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //recebe a informação da rota se é de edição ou criação
     this.activatedroute.data.subscribe((data) => {
       this.routeData = data;
     });
@@ -31,9 +32,9 @@ export class UnitComponent implements OnInit {
     } else {
       this.title = 'Cadastrar Unidade';
     }
-    console.log(this.formUnit);
   }
 
+  //click do botão que verifica se é para ir à página de editar ou criar unidade
   onSubmit() {
     if (this.routeData.editing == true) {
       this.editUnit();
@@ -43,12 +44,14 @@ export class UnitComponent implements OnInit {
     this.unitService.goToUnitList();
   }
 
+  //chama os serviços de criação de unidade
   createNewUnit() {
     this.formUnit.id = Math.round(Math.random() * 100);
     this.unitService.pushUnitsList({ ...this.formUnit });
     this.unitService.addUnitList({ ...this.formUnit }).subscribe();
   }
 
+  //chama os serviços de edição de unidade
   editUnit() {
     this.id = Number(localStorage.getItem('id'));
     this.formUnit.id = this.id;

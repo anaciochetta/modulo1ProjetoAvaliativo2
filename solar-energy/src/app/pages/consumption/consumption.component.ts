@@ -29,6 +29,7 @@ export class ConsumptionComponent implements OnInit {
     this.getUnitsList();
   }
 
+  //chama o serviço para pegar a lista das unidades para renderizar a tela
   getUnitsList(): void {
     this.unitService.getUnitList().subscribe((data) => {
       this.unitsList = data;
@@ -39,6 +40,7 @@ export class ConsumptionComponent implements OnInit {
     this.createUnitConsumption();
   }
 
+  //chama serviços para a criação de uma nova unidade consumidora
   createUnitConsumption() {
     this.unitConsumptionById.consumption.push(this.unitConsumption);
     this.consumptionService.pushConsumptionList({
@@ -47,6 +49,5 @@ export class ConsumptionComponent implements OnInit {
     this.consumptionService
       .addConsumption({ ...this.unitConsumptionById })
       .subscribe();
-    console.log(this.unitConsumptionById);
   }
 }

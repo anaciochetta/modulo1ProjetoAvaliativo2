@@ -9,38 +9,44 @@ import { IUser } from '../utils/model/user.model';
 })
 export class AuthenticationService {
   usersList: IUser[] = [];
-  login: any;
   authenticated: boolean = false;
 
   showMenuEmitter = new EventEmitter<boolean>();
 
   constructor(private http: HttpClient, private route: Router) {}
 
+  //busca a lista de usuários cadastrados
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>('http://localhost:3000/users');
   }
 
-  validateLogon(inputEmail: string, inputPassword: string) {
+  //valida o login do usuário e emite a liberação das páginas
+  validateLogin(inputEmail: string, inputPassword: string) {
     this.getUsers().subscribe((resultado) => {
       this.usersList = resultado;
+
       const email = this.validateEmail(inputEmail);
       const password = this.validatePassword(inputPassword);
-      console.log(email, password);
+
       if (email && password) {
-        alert('a');
+        localStorage.setItem('login', JSON.stringify('ok'));
         this.showMenuEmitter.emit(true);
-        this.goToDashboard();
+        this.authenticated = true;
+        this.route.navigateByUrl('/');
       } else {
         alert('deu ruim');
+        this.authenticated = false;
         this.showMenuEmitter.emit(false);
       }
     });
   }
 
+  //valida o email baseado na lista de usuários
   validateEmail(email: string) {
     const found = this.usersList.find((user) => {
       return user.email === email;
     });
+
     if (found === undefined) {
       return false;
     } else {
@@ -48,10 +54,12 @@ export class AuthenticationService {
     }
   }
 
+  //valida a senha baseado na lista de usuários
   validatePassword(password: string): boolean {
     let found = this.usersList.find((user) => {
       return user.password === password;
     });
+
     if (found === undefined) {
       return false;
     } else {
@@ -59,24 +67,8 @@ export class AuthenticationService {
     }
   }
 
-  goToDashboard() {
-    localStorage.setItem('login', JSON.stringify('ok'));
-    this.route.navigateByUrl('/');
-  }
-
+  //retorna o estado da autenticação
   pageValidation(): boolean {
-    let validate = String(localStorage.getItem('login'));
-    console.log(validate);
-    if (validate == 'ok') {
-      this.authenticated = true;
-      return true;
-    } else {
-      this.authenticated = true;
-      return false;
-    }
-  }
-
-  userLogged() {
     return this.authenticated;
   }
 }

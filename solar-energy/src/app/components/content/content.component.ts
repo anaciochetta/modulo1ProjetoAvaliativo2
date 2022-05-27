@@ -11,14 +11,7 @@ export class ContentComponent implements OnInit {
   title: string = '';
   editPage: string = 'Editar Unidade';
 
-  constructor(private activatedroute: ActivatedRoute) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.activatedroute.data.subscribe((data) => {
-      this.routeData = data;
-    });
-    if (this.routeData.editing == true) {
-      this.title = this.editPage;
-    }
-  }
+  ngOnInit(): void {}
 }

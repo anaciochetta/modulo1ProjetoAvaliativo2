@@ -6,3 +6,5 @@ export interface IMonth {
 export interface IYear {
   value: number;
 }
+
+//modelo para mês e ano

@@ -7,6 +7,7 @@ import { UnitComponent } from './pages/unit/unit.component';
 import { UnitsListComponent } from './pages/units-list/units-list.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
+//módulo de rotas
 const ROUTES: Route[] = [
   {
     path: '', //sem nada pois entra na página principal, sem o / alguma coisa

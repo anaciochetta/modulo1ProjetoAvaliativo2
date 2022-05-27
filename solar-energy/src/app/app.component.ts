@@ -14,6 +14,7 @@ export class AppComponent {
   constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {
+    //verifica se está logado para mostrar o menu/side-bar
     this.authService.showMenuEmitter.subscribe((show) => {
       this.showMenu = show;
       console.log(this.showMenu);

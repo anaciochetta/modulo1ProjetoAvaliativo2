@@ -14,8 +14,9 @@ export class LogonComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //quando clicar no botão de entrar chama o serviço de login
   onSubmit() {
-    this.authService.validateLogon(
+    this.authService.validateLogin(
       this.inputUser.email,
       this.inputUser.password
     );

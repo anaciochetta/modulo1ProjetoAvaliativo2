@@ -21,15 +21,11 @@ export class AuthGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    return this.verificarAcesso();
-  }
-
-  private verificarAcesso() {
-    if (this.authService.userLogged()) {
+    if (this.authService.pageValidation()) {
       return true;
     }
-
-    this.router.navigate(['/logon']);
+    this.router.navigateByUrl('/logon');
     return false;
   }
+  //canActivate não permite entrar em nenhuma página se não estiver com o login autenticado
 }

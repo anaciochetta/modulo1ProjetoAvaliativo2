@@ -17,6 +17,7 @@ export class UnitsListComponent implements OnInit {
     this.getUnitsList();
   }
 
+  //chama o serviço de buscar a lista de unidades
   getUnitsList(): void {
     this.unitService.getUnitList().subscribe((resultado) => {
       this.unitsList = resultado;
@@ -24,16 +25,19 @@ export class UnitsListComponent implements OnInit {
     });
   }
 
+  //filtra as unidades ativas para renderizar a tela
   filterActiveUnits() {
     this.activeUnits = this.unitsList.filter((active) => {
       return active.isActive == true;
     });
   }
 
+  //chama o serviço de editar a lista de unidades
   editUnit(id: number) {
     this.unitService.goToEditing(id);
   }
 
+  //chama o serviço de remover a lista de unidades
   removeUnit(id: number) {
     this.unitService.removeUnit(id);
     this.getUnitsList();

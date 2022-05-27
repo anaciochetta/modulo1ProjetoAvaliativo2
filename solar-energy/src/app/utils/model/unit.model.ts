@@ -6,3 +6,5 @@ export interface IUnit {
   marca: string;
   modelo: string;
 }
+
+//modelo de unidade

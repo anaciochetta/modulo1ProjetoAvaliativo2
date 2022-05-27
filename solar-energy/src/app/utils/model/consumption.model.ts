@@ -8,3 +8,5 @@ export class UnitConsumption {
   year: number = 0;
   energy: number = 0;
 }
+
+//modelo de consumo e da unidade de consumo por ano/mês

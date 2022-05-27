@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
     this.getConsumptionList();
   }
 
+  //chama o serviço para pegar a lista das unidades
   getUnitsList(): void {
     this.unitService.getUnitList().subscribe((data) => {
       this.unitsList = data;
@@ -38,23 +39,27 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  //filtra as unidades ativas para renderizar a tela
   filterActiveUnits() {
     this.activeUnitsList = this.unitsList.filter((active) => {
       return active.isActive == true;
     });
   }
+  //filtra as unidades ativas para renderizar a tela
   filterInactiveUnits() {
     this.inactiveUnitsList = this.unitsList.filter((inactive) => {
       return inactive.isActive == false;
     });
   }
 
+  //chama o serviço para pegar a lista das unidades consumidoras
   getConsumptionList() {
     this.consumptionService.getConsumptionList().subscribe((data) => {
       this.consumptionList = data;
     });
   }
 
+  //faz a média de energia com o total de unidades
   meanEnergyConsumption() {
     this.consumptionService.totalEnergyConsumption((data: any) => {
       let toltalEnergy = data;
@@ -62,6 +67,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  //renderiza a página
   renderPage() {
     this.activeUnits = this.activeUnitsList.length;
     this.inactiveUnits = this.inactiveUnitsList.length;
