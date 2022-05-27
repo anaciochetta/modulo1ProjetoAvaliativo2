@@ -4,6 +4,8 @@ import { UnitService } from 'src/app/services/unit.service';
 import { Consumption } from 'src/app/utils/model/consumption.model';
 import { Unit } from 'src/app/utils/unit.class';
 
+import { GraphicsComponent } from './graphics/graphics.component';
+
 @Component({
   selector: 'solar-dashboard',
   templateUrl: './dashboard.component.html',
