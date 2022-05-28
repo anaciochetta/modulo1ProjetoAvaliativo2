@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { GraphicService } from 'src/app/services/graphic.service';
+import { graphicData } from 'src/app/utils/model/graphic.model';
 
 @Component({
   selector: 'solar-graphics',
@@ -26,7 +27,7 @@ export class GraphicsComponent implements OnInit {
     datasets: [
       {
         label: 'Total de energia gerada por mês',
-        data: [100, 400, 400, 100, 100, 200, 400, 400, 500, 900, 1100, 1200],
+        data: [10, 10, 10],
         fill: false,
         borderColor: '#2196F3',
         pointBorderColor: 'black',
@@ -34,7 +35,6 @@ export class GraphicsComponent implements OnInit {
       },
     ],
   };
-  graphicData: any;
   months = [
     'january',
     'february',
@@ -49,6 +49,27 @@ export class GraphicsComponent implements OnInit {
     'november',
     'december',
   ];
+  data: any = {
+    label: 'Total de energia gerada por mês',
+    data: [
+      graphicData.january,
+      graphicData.february,
+      graphicData.march,
+      graphicData.april,
+      graphicData.may,
+      graphicData.june,
+      graphicData.july,
+      graphicData.august,
+      graphicData.september,
+      graphicData.october,
+      graphicData.november,
+      graphicData.december,
+    ],
+    fill: false,
+    borderColor: '#fff',
+    pointBorderColor: 'black',
+    tension: 0.4,
+  };
 
   constructor(private graficService: GraphicService) {}
 
@@ -60,7 +81,8 @@ export class GraphicsComponent implements OnInit {
     this.months.forEach((item) => {
       this.graficService.getConsumptionPerMonth(item);
     });
-    this.graphicData = this.graficService.returnGraphicData();
-    console.log(this.graphicData);
+    this.data = this.graficService.returnGraphicData();
+    console.log(graphicData);
+    //this.removeData(this.barChartData);
   }
 }

@@ -55,6 +55,14 @@
       "local": "banana",
       "marca": "banana com nama",
       "modelo": "banana"
+    },
+    {
+      "id": 41,
+      "isActive": true,
+      "apelido": "a",
+      "local": "a",
+      "marca": "b",
+      "modelo": "a"
     }
   ],
   "users": [
@@ -146,6 +154,12 @@
       "year": "2021",
       "energy": 1200,
       "id": 12
+    },
+    {
+      "month": "february",
+      "year": "2012",
+      "energy": 0,
+      "id": 13
     }
   ]
 }
