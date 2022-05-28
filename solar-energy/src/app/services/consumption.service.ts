@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Consumption } from '../utils/model/consumption.model';
+import { UnitConsumption } from '../utils/model/consumption.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsumptionService {
-  consumptionList: Consumption[] = [];
+  consumptionList: UnitConsumption[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class ConsumptionService {
   }
 
   //adciona nova unidade consumidora por meio do POST
-  addConsumption(consumption: Consumption): Observable<any> {
+  addConsumption(consumption: UnitConsumption): Observable<any> {
     const headers = { 'content-type': 'application/json' };
     const body = JSON.stringify(consumption);
     return this.http.post('http://localhost:3000/consumption', body, {
@@ -26,8 +26,10 @@ export class ConsumptionService {
   }
 
   //pega a lista de unidades consumidoras por meio do GET
-  getConsumptionList(): Observable<Consumption[]> {
-    return this.http.get<Consumption[]>('http://localhost:3000/consumption');
+  getConsumptionList(): Observable<UnitConsumption[]> {
+    return this.http.get<UnitConsumption[]>(
+      'http://localhost:3000/consumption'
+    );
   }
 
   //pega a lista de unidades consumidoras, pega e retorna o total de energia consumida
@@ -43,11 +45,9 @@ export class ConsumptionService {
   //faz um filtro dentro das unidades consumidoras para pegar os valores energéticos, soma e retorna o total
   getEnergyConsumption() {
     let totalEnergy = 0;
-    this.consumptionList.filter((item) =>
-      item.consumption.forEach((unit) => {
-        totalEnergy += unit.energy;
-      })
-    );
+    this.consumptionList.forEach((unit) => {
+      totalEnergy += unit.energy;
+    });
     return totalEnergy;
   }
 }

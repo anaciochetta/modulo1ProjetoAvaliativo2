@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
-import { Consumption } from 'src/app/utils/model/consumption.model';
+import { UnitConsumption } from 'src/app/utils/model/consumption.model';
 import { Unit } from 'src/app/utils/unit.class';
 
 import { GraphicsComponent } from './graphics/graphics.component';
@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   activeUnits: number = 0;
   inactiveUnits: number = 0;
   totalUnits: number = 0;
-  consumptionList: Consumption[] = [];
+  consumptionList: UnitConsumption[] = [];
   meanEnergy: number = 0;
 
   constructor(
@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
   meanEnergyConsumption() {
     this.consumptionService.totalEnergyConsumption((data: any) => {
       let toltalEnergy = data;
-      this.meanEnergy = toltalEnergy / this.totalUnits;
+      this.meanEnergy = Math.round(toltalEnergy / this.totalUnits);
     });
   }
 

@@ -49,14 +49,6 @@
       "modelo": "asd"
     },
     {
-      "id": 41,
-      "isActive": true,
-      "apelido": "ssd",
-      "local": "ssssssssssss",
-      "marca": "a",
-      "modelo": "asd"
-    },
-    {
       "id": 77,
       "isActive": true,
       "apelido": "banana",
@@ -84,104 +76,76 @@
   ],
   "consumption": [
     {
-      "id": "1",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "january",
+      "year": "2021",
+      "energy": 100,
+      "id": 1
     },
     {
-      "id": "38",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        },
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "february",
+      "year": "2021",
+      "energy": 200,
+      "id": 2
     },
     {
-      "id": "57",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        },
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "march",
+      "year": "2021",
+      "energy": 300,
+      "id": 3
     },
     {
-      "id": "30",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "april",
+      "year": "2021",
+      "energy": 400,
+      "id": 4
     },
     {
-      "id": "84",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "may",
+      "year": "2021",
+      "energy": 500,
+      "id": 5
     },
     {
-      "id": "42",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "june",
+      "year": "2021",
+      "energy": 600,
+      "id": 6
     },
     {
-      "id": "41",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "july",
+      "year": "2021",
+      "energy": 700,
+      "id": 7
     },
     {
-      "id": "77",
-      "consumption": [
-        {
-          "month": "april",
-          "year": "2010",
-          "energy": 200
-        }
-      ]
+      "month": "august",
+      "year": "2021",
+      "energy": 800,
+      "id": 8
     },
     {
-      "id": "GgOrzh-",
-      "consumption": [
-        {
-          "month": "",
-          "year": 0,
-          "energy": 0
-        }
-      ]
+      "month": "september",
+      "year": "2021",
+      "energy": 900,
+      "id": 9
+    },
+    {
+      "month": "october",
+      "year": "2021",
+      "energy": 1000,
+      "id": 10
+    },
+    {
+      "month": "november",
+      "year": "2021",
+      "energy": 1100,
+      "id": 11
+    },
+    {
+      "month": "december",
+      "year": "2021",
+      "energy": 1200,
+      "id": 12
     }
   ]
 }

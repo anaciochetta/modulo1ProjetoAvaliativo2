@@ -3,12 +3,7 @@
     <h2>Lançamento de geração mensal</h2>
     <label for="Select" class="form-label">Unidade Geradora:</label>
     <div class="mb-3">
-      <select
-        id="Select"
-        class="form-select"
-        [(ngModel)]="unitConsumptionById.id"
-        name="select"
-      >
+      <select id="Select" class="form-select" name="select">
         <option *ngFor="let item of unitsList" value="{{ item.id }}">
           {{ item.apelido }}
         </option>

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
-import {
-  Consumption,
-  UnitConsumption,
-} from 'src/app/utils/model/consumption.model';
+import { UnitConsumption } from 'src/app/utils/model/consumption.model';
 import { MONTH_MOCK, YEAR_MOCK } from 'src/app/utils/date-mock';
 import { Unit } from 'src/app/utils/unit.class';
 
@@ -18,8 +15,6 @@ export class ConsumptionComponent implements OnInit {
   years = YEAR_MOCK;
   months = MONTH_MOCK;
   unitConsumption = new UnitConsumption();
-  unitConsumptionById = new Consumption();
-
   constructor(
     private unitService: UnitService,
     private consumptionService: ConsumptionService
@@ -42,12 +37,11 @@ export class ConsumptionComponent implements OnInit {
 
   //chama serviços para a criação de uma nova unidade consumidora
   createUnitConsumption() {
-    this.unitConsumptionById.consumption.push(this.unitConsumption);
     this.consumptionService.pushConsumptionList({
-      ...this.unitConsumptionById,
+      ...this.unitConsumption,
     });
     this.consumptionService
-      .addConsumption({ ...this.unitConsumptionById })
+      .addConsumption({ ...this.unitConsumption })
       .subscribe();
   }
 }
