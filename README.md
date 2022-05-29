@@ -2,4 +2,4 @@
 
 Criação de uma aplicação para gerenciamento de energia, Solar Energy.
 
-Aplicação desenvolvida utilizando Angular.
+Aplicação desenvolvida utilizando Angular, Typescript e Bootstrap
