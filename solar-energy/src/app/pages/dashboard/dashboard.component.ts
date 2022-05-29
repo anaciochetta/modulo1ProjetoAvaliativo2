@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
+import { MONTH_MOCK, YEAR_MOCK } from 'src/app/utils/date-mock';
 import { UnitConsumption } from 'src/app/utils/model/consumption.model';
+import { consumptionData } from 'src/app/utils/model/year-consumption.model';
 import { Unit } from 'src/app/utils/unit.class';
-
-import { GraphicsComponent } from './graphics/graphics.component';
 
 @Component({
   selector: 'solar-dashboard',
@@ -20,6 +20,12 @@ export class DashboardComponent implements OnInit {
   totalUnits: number = 0;
   consumptionList: UnitConsumption[] = [];
   meanEnergy: number = 0;
+  years = YEAR_MOCK;
+  months = MONTH_MOCK;
+  selectedYear: any;
+  energyPerMonth: number = 0;
+
+  selectYear = new EventEmitter<string>();
 
   constructor(
     private unitService: UnitService,
@@ -75,5 +81,18 @@ export class DashboardComponent implements OnInit {
     this.inactiveUnits = this.inactiveUnitsList.length;
     this.totalUnits = this.unitsList.length;
     this.meanEnergyConsumption();
+  }
+
+  //renderiza a tabela de consumo anual conforme o select de ano
+  consumptionTable() {
+    this.months.forEach((month) => {
+      this.consumptionService.getConsumptionPerMonth(
+        this.selectedYear,
+        month.value,
+        (data: any) => {
+          month.energy = data;
+        }
+      );
+    });
   }
 }

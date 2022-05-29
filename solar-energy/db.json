@@ -49,14 +49,6 @@
       "modelo": "asd"
     },
     {
-      "id": 77,
-      "isActive": true,
-      "apelido": "banana",
-      "local": "banana",
-      "marca": "banana com nama",
-      "modelo": "banana"
-    },
-    {
       "id": 41,
       "isActive": true,
       "apelido": "a",
@@ -160,6 +152,12 @@
       "year": "2012",
       "energy": 0,
       "id": 13
+    },
+    {
+      "month": "january",
+      "year": "2016",
+      "energy": 50,
+      "id": 14
     }
   ]
 }

@@ -43,5 +43,6 @@ export class ConsumptionComponent implements OnInit {
     this.consumptionService
       .addConsumption({ ...this.unitConsumption })
       .subscribe();
+    alert('Unidade Criada!');
   }
 }

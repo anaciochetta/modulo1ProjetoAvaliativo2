@@ -34,7 +34,7 @@ export class AuthenticationService {
         this.authenticated = true;
         this.route.navigateByUrl('/');
       } else {
-        alert('deu ruim');
+        alert('Não possível autenticar o login, por favor tentar novamente!');
         this.authenticated = false;
         this.showMenuEmitter.emit(false);
       }

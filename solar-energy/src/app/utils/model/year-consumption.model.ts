@@ -1,4 +1,4 @@
-export const graphicData = {
+export const consumptionData = {
   january: 0,
   february: 0,
   march: 0,

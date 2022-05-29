@@ -2,12 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UnitConsumption } from '../utils/model/consumption.model';
 import { Observable } from 'rxjs';
+import { consumptionData } from '../utils/model/year-consumption.model';
+import { YEAR_MOCK, MONTH_MOCK } from '../utils/date-mock';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsumptionService {
   consumptionList: UnitConsumption[] = [];
+  consumptionPerMonth: any;
+  consumptionPerYear: any;
+  consumptionPerYearList: any = [];
+  years = YEAR_MOCK;
+  months = MONTH_MOCK;
 
   constructor(private http: HttpClient) {}
 
@@ -47,6 +55,30 @@ export class ConsumptionService {
     let totalEnergy = 0;
     this.consumptionList.forEach((unit) => {
       totalEnergy += unit.energy;
+    });
+    return totalEnergy;
+  }
+
+  getConsumptionPerMonth(year: number, month: string, cb?: any) {
+    this.getConsumptionList().subscribe((data) => {
+      this.consumptionList = data;
+      let totalEnergy = this.getTotalEnergyMonth(month, year);
+      return cb(totalEnergy);
+    });
+  }
+
+  getTotalEnergyMonth(selectedMonth: string, selectdYear: number) {
+    this.consumptionPerYear = this.consumptionList.filter((item) => {
+      return item.year == selectdYear;
+    });
+    this.consumptionPerMonth = this.consumptionPerYear.filter(
+      (item: { month: string }) => {
+        return item.month == selectedMonth;
+      }
+    );
+    let totalEnergy = 0;
+    this.consumptionPerMonth.forEach((item: any) => {
+      totalEnergy += item.energy;
     });
     return totalEnergy;
   }

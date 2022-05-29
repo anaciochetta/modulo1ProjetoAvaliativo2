@@ -1,6 +1,7 @@
 export interface IMonth {
   value: string;
   viewValue: string;
+  energy?: number;
 }
 
 export interface IYear {

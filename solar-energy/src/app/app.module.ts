@@ -13,8 +13,6 @@ import { UnitComponent } from './pages/unit/unit.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './services/auth-guard.service';
-import { GraphicsComponent } from './pages/dashboard/graphics/graphics.component';
-import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,15 +24,8 @@ import { NgChartsModule } from 'ng2-charts';
     LogonComponent,
     UnitsListComponent,
     UnitComponent,
-    GraphicsComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgChartsModule,
-  ],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
 })
