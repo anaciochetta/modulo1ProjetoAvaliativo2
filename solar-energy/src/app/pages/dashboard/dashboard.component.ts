@@ -3,7 +3,6 @@ import { ConsumptionService } from 'src/app/services/consumption.service';
 import { UnitService } from 'src/app/services/unit.service';
 import { MONTH_MOCK, YEAR_MOCK } from 'src/app/utils/date-mock';
 import { UnitConsumption } from 'src/app/utils/model/consumption.model';
-import { consumptionData } from 'src/app/utils/model/year-consumption.model';
 import { Unit } from 'src/app/utils/unit.class';
 
 @Component({
